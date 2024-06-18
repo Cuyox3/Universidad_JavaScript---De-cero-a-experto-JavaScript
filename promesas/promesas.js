@@ -24,3 +24,32 @@ let promesa = new Promise( (resolve) => {
 promesa.then( valor => console.log(valor));
 
 // async indica que una funcion regresa una promesa 
+
+async function miFuncionConPromesa() {
+    return 'Saludos con promesa y async';
+}
+
+miFuncionConPromesa().then( valor => console.log(valor));
+
+// async/await
+
+async function funcionConPromesaYAwait() {
+    let miPromesa = new Promise( resolve => {
+        resolve('Promesa con await');
+    });
+
+    console.log(await miPromesa);
+}
+
+funcionConPromesaYAwait();
+
+async function funcionConPromesaYAwait() {
+    let miPromesa = new Promise( resolve => {
+        setTimeout( () => resolve('Promesa con await y timeout'), 3000);
+    });
+
+    console.log(await miPromesa);
+    console.log('Fin de la funcion');
+}
+
+funcionConPromesaYAwait();
